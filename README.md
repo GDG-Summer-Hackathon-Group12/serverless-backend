@@ -1,7 +1,7 @@
 <h1 align="center">카공 커뮤니티 야카공!👋</h1>
 
 <p align="center">
-<img width="550" src="./assets/main.png" />
+<img width="350" src="./assets/main.png" />
 </p>
 
 <br><br>
