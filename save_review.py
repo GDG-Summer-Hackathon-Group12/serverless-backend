@@ -1,28 +1,15 @@
 import pymysql
-import logging
 import config
-import sys
 
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
+def lambda_handler(event, context):
 
-try:
+    # db setting
     conn = pymysql.connect(
         host=config.db_hostname,
         user=config.db_username,
         password=config.db_password,
         db=config.db_name
     )
-except pymysql.MySQLError as e:
-    logger.error(
-        "ERROR: Unexpected error: Could not connect to MySQL instance.")
-    logger.error(e)
-    sys.exit()
-
-logger.info("SUCCESS: Connection to RDS MySQL instance succeeded")
-
-
-def lambda_handler(event, context):
 
     cafe_id = event['params']['path']['cafe-id']
     body = event['body-json']
