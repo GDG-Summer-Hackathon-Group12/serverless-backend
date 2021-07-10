@@ -28,6 +28,14 @@ def search_menu_list(name):
 
     href = element[0].attrs['href']
     
+    conn = pymysql.connect(
+        host=config.db_hostname,
+        user=config.db_username,
+        password=config.db_password,
+        db=config.db_name
+    )
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
+    
     driver.get(url + href)
     time.sleep(20)
     elems = driver.page_source
@@ -36,7 +44,10 @@ def search_menu_list(name):
     for category in categories:
         menu = category.find('span', attrs={'class': 'tit'})
         print(menu.contents[0])
-
+        sql = "INSERT INTO menu (cafe_id, cafe_name, menu) VALUES (%s, %s, %s)"
+        cursor.execute(sql,(id, name, menu.contents[0]))
+    conn.commit()
+    conn.close()
 
 def get_cafe_list():
     sql = '\
@@ -44,7 +55,7 @@ def get_cafe_list():
           '
     cursor.execute(sql)
     data_list = cursor.fetchall()
-    name_list = list(data_list[i]['name'] for i in range(len(data_list)))
+    name_list = list((data_list[i]['id'],data_list[i]['name']) for i in range(len(data_list)))
     conn.commit()
     conn.close()
 
