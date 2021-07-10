@@ -2,9 +2,15 @@ import json
 import pymysql
 import requests
 import decimal
+import rds_config
+
 
 # 까페 정보 데이터베이스에 insert 
 def lambda_handler(event, context):
+    rds_host  = "rds-instance-endpoint"
+    name = rds_config.db_username
+    password = rds_config.db_password
+    db_name = rds_config.db_name
 
     latitude = event['latitude']
     longitude = event['longitude']
@@ -15,7 +21,7 @@ def lambda_handler(event, context):
         params = {'category_group_code': 'CE7', 'x': str(
             longitude), 'y': str(latitude), 'radius': 100, 'page': str(page)}
         result = requests.get(url, params=params, headers={
-                              'Authorization': 'KakaoAK 33655198691cb10e829905513d2ac52b'}).json()
+                              'Authorization': 'KakaoAK '}).json()
         for value in result['documents']:
             tmp = (value['id'], value['place_name'], value['x'], value['y'], value['phone'],
                    value['address_name'], value['road_address_name'], value['place_url'])
@@ -28,10 +34,10 @@ def lambda_handler(event, context):
         }
     else:
         cagong_db = pymysql.connect(
-            user='cagong',
-            passwd='gdghackathon12',
-            host='springboot-db.cszagrzyjprb.ap-northeast-2.rds.amazonaws.com',
-            db='gdg-hackathon',
+            user=name,
+            passwd=password,
+            host=rds_host,
+            db=db_name,
             charset='utf8'
         )
         cursor = cagong_db.cursor(pymysql.cursors.DictCursor)
