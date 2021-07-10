@@ -4,14 +4,13 @@ import requests
 import decimal
 import rds_config
 
+rds_host  = "rds-instance-endpoint"
+name = rds_config.db_username
+password = rds_config.db_password
+db_name = rds_config.db_name
 
 # 까페 정보 데이터베이스에 insert 
 def lambda_handler(event, context):
-    rds_host  = "rds-instance-endpoint"
-    name = rds_config.db_username
-    password = rds_config.db_password
-    db_name = rds_config.db_name
-
     latitude = event['latitude']
     longitude = event['longitude']
 

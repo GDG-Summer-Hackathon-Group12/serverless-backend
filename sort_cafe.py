@@ -2,15 +2,15 @@ from urllib.parse import urlparse
 import json
 import requests
 import pymysql
-import rds_config
+import config
 
+rds_host = "rds-instance-endpoint"
+name = config.db_username
+password = config.db_password
+db_name = config.db_name
 
 # 카공 지수 높은 순으로 sort
 def lambda_handler(event, context):
-    rds_host = "rds-instance-endpoint"
-    name = rds_config.db_username
-    password = rds_config.db_password
-    db_name = rds_config.db_name
 
     latitude = event['latitude']
     longitude = event['longitude']
