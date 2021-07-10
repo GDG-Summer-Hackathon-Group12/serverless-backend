@@ -2,24 +2,25 @@ import pymysql
 import config
 from urllib import parse
 
-# db setting
-hostname = config.db_hostname
-username = config.db_username
-password = config.db_password
-db_name = config.db_name
-
 def lambda_handler(event, context):
+
+    # db setting
+    try:
+        conn = pymysql.connect(
+            host=config.db_hostname,
+            user=config.db_username,
+            password=config.db_password,
+            db=config.db_name
+        )
+    except pymysql.MySQLError as e:
+        return {
+            "success": False,
+            "message": "Database Error"
+        }
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
 
     cafe_id = event['params']['path']['cafe-id']
 
-    conn = pymysql.connect(
-        host=hostname,
-        user=username,
-        password=password,
-        db=db_name
-    )
-    cursor = conn.cursor(pymysql.cursors.DictCursor)
-    
     sql = '\
             SELECT c.id, c.name, count(r.id) as cnt_review, \
                    ROUND(AVG(r.star), 2) as avg_star, ROUND(AVG(r.noise), 1) as avg_noise, ROUND(AVG(r.light), 1) as avg_light, ROUND(AVG(r.chair), 1) as avg_chair \
@@ -37,7 +38,7 @@ def lambda_handler(event, context):
         }
 
     # 대표 이미지 url 조회
-    sql = ' \
+    sql = '\
             SELECT image_url as thumbnail \
             FROM image  \
             WHERE cafe_id = %s \
