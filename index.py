@@ -35,7 +35,7 @@ def lambda_handler(event, context):
     # 데이터가 없다면 json형식으로 false를 반환하고, 데이터가 있으면 데이터를 반환한다.
     if not data:
         return {
-            'success': 'false',
+            'success': False,
         }
     else:
         return_data = []
@@ -43,6 +43,6 @@ def lambda_handler(event, context):
             return_data.append({'id': d[0], 'place_name': d[1], 'latitude': d[3], 'longitude': d[2],
                                 'phone': d[4], 'address_name': d[5], 'road_address_name': d[6], 'place_url': d[7]})
         return {
-            'success': 'true',
+            'success': True,
             'data': return_data
         }

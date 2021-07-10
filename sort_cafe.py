@@ -9,12 +9,15 @@ name = config.db_username
 password = config.db_password
 db_name = config.db_name
 
-# 카공 지수 높은 순으로 sort
+"""경도와 위도를 받아 반경 100m내의 까페들의 
+카공 지수를 내림참순으로 정렬하여 반환합니다."""
 def lambda_handler(event, context):
 
     latitude = event['latitude']
     longitude = event['longitude']
     data = []
+    
+    # 카카오 API
     for page in range(1, 4):
         url = 'https://dapi.kakao.com/v2/local/search/category.json'
         params = {'category_group_code': 'CE7', 'x': str(
@@ -28,9 +31,11 @@ def lambda_handler(event, context):
 
     if not data:
         return {
-            'success': 'false',
+            'success': False,
         }
     else:
+        
+        # DB 연결
         cagong_db = pymysql.connect(
             user=name,
             passwd=password,
@@ -40,6 +45,8 @@ def lambda_handler(event, context):
         )
         cursor = cagong_db.cursor(pymysql.cursors.DictCursor)
         for i in range(len(data)):
+            
+            # 카페 지수의 평균
             sql = "SELECT AVG(star) FROM review WHERE cafe_id = %s"
             cursor.execute(sql, (int(data[i][0])))
             rows = cursor.fetchall()
@@ -48,6 +55,7 @@ def lambda_handler(event, context):
             else:
                 data[i] += (rows[0]['AVG(star)'],)
 
+        # 카공 지수를 기준으로 내림차순 정렬
         data.sort(reverse=True, key=lambda x: x[4])
 
         for i in range(len(data)):
@@ -61,6 +69,6 @@ def lambda_handler(event, context):
             return_data.append(
                 {'id': d[0], 'place_name': d[1], 'latitude': d[3], 'longitude': d[2], 'star_average': d[4]})
         return {
-            'sucess': 'true',
+            'success': True,
             'data': return_data
         }
