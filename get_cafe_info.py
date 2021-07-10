@@ -1,15 +1,15 @@
 import pymysql
-import rds_config
+import config
 
 def lambda_handler(event, context):
 
     cafe_id = event['params']['path']['cafe-id']
 
     # db setting
-    hostname = rds_config.db_hostname
-    username = rds_config.db_username
-    password = rds_config.db_password
-    db_name = rds_config.db_name
+    hostname = config.db_hostname
+    username = config.db_username
+    password = config.db_password
+    db_name = config.db_name
 
     conn = pymysql.connect(
         host=hostname,
