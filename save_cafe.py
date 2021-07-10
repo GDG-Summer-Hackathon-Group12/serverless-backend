@@ -2,18 +2,20 @@ import json
 import pymysql
 import requests
 import decimal
-import rds_config
+import config
 
 rds_host  = "rds-instance-endpoint"
 name = rds_config.db_username
 password = rds_config.db_password
 db_name = rds_config.db_name
 
-# 까페 정보 데이터베이스에 insert 
+"""index.py 람다 함수로부터 호출되어서 경도와 위도를 받아
+반경 100m이내의 카페 정보를 데이터베이스에 저장한다."""
 def lambda_handler(event, context):
     latitude = event['latitude']
     longitude = event['longitude']
 
+    # kakao API
     data = []
     for page in range(1, 4):
         url = 'https://dapi.kakao.com/v2/local/search/category.json'
@@ -32,6 +34,8 @@ def lambda_handler(event, context):
             'success': 'false',
         }
     else:
+        
+        # 데이터베이스 연결
         cagong_db = pymysql.connect(
             user=name,
             passwd=password,
@@ -42,6 +46,8 @@ def lambda_handler(event, context):
         cursor = cagong_db.cursor(pymysql.cursors.DictCursor)
         for d in data:
             try:
+                
+                # INSERT문
                 sql = "INSERT INTO cafe (id, `name`, latitude, longitude, phone, `address`, road_address, place_url) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
                 cursor.execute(sql, (int(d[0]), d[1], decimal.Decimal(
                     d[3]), decimal.Decimal(d[2]), d[4], d[5], d[6], d[7]))
@@ -50,7 +56,7 @@ def lambda_handler(event, context):
         cagong_db.commit()
         cagong_db.close()
 
-        # TODO implement
+        # sample return을 그대로 하고, 종료된다. 
         return {
             'statusCode': 200,
             'body': json.dumps('Hello from Lambda!')
