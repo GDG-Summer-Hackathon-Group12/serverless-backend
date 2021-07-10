@@ -1,5 +1,6 @@
 import pymysql
 import config
+from urllib import parse
 
 # db setting
 hostname = config.db_hostname
@@ -30,7 +31,6 @@ def lambda_handler(event, context):
     data = cursor.fetchall()
 
     if not data[0]['name']:
-        print(False)
         return {
             "success": False,
             "message": "카페 정보가 존재하지 않습니다."
@@ -45,13 +45,12 @@ def lambda_handler(event, context):
 
     cursor.execute(sql, cafe_id)
     thumbnail = cursor.fetchone()
-    print(thumbnail)
     if not thumbnail:
         data[0]['thumbnail'] = config.default_image_url
     else:
-        data[0]['thumbnail'] = thumbnail.get('thumbnail')
+        thumbnail_name = parse.quote(thumbnail.get('thumbnail').split(config.s3_base_url)[1])
+        data[0]['thumbnail'] = config.s3_base_url + thumbnail_name 
 
-    print(data[0])
     conn.commit()
     conn.close()
 
