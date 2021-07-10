@@ -3,6 +3,7 @@ import json
 import requests
 import boto3
 
+
 # 시작 화면
 def lambda_handler(event, context):
     latitude = event['latitude']
