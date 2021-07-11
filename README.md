@@ -22,6 +22,14 @@
 
 <br><br>
 
+## 📂 DB Modeling
+
+<p align="center">
+<img src="./assets/db_modeling.png" />
+</p>
+
+<br><br>
+
 ## 🚩 API 명세
 
 ### 지도에서 카페들의 정보 조회
