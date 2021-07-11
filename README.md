@@ -1,12 +1,12 @@
-<h1 align="center">카공 커뮤니티 야!카공?👋</h1>
+<h1 align="center">Welcome to cagong👋</h1>
 
 <p align="center">
-<img width="350" src="./assets/main.png" />
+<img width="700" src="./assets/main.png" />
 </p>
 
 <br><br>
 
-## ❓ What is `야!카공?`
+## ❓ What is cagong?
 
 > 카공족이란? <br> 카페에서 커피나 간식 등을 구매하고 장시간 머무르며 공부하는 사람들을 말합니다.
 
@@ -647,14 +647,6 @@ id가 `{cafe-id}`인 카페의 카공 후기를 작성합니다.<br>
 
 </div>
 </details>
-
-
-<br><br>
-
-## 🎈 Features
-
-??
-
 
 <br><br>
 
