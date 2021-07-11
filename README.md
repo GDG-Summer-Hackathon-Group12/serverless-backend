@@ -292,8 +292,10 @@
 
 <img width="300" src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/211b7922-6808-4d00-b44b-c6403f9a5a23/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210711%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210711T013130Z&X-Amz-Expires=86400&X-Amz-Signature=04ec03a6e550666ccdfe51fc5a3381d70fac6ac3284c6885ebaae6c053c8a98c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22" />
 
-```json
+```
+    
 [GET] /cafes/{cafe-id}/info
+
 ```
 
 - **Response Body**
@@ -368,7 +370,7 @@
 
 <img width="300" src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/eee6c260-d923-4733-a4ae-f75a4bea5bca/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210711%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210711T013444Z&X-Amz-Expires=86400&X-Amz-Signature=868ffa816565304d5c17c715f4e306432408d24d2c346532789546b0da63425e&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22" />
 
-```json
+```
 [GET] /cafes/{cafe-id}/reviews 
 ```
 
@@ -552,7 +554,7 @@
 
 <br>
 
-```json
+```
 [POST] /images
 ```
 
@@ -573,7 +575,7 @@
 
     예시
 
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a5c59705-0fd2-4347-bb50-e36b18bc6e28/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a5c59705-0fd2-4347-bb50-e36b18bc6e28/Untitled.png)
+    ![image](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a5c59705-0fd2-4347-bb50-e36b18bc6e28/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210711%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210711T022044Z&X-Amz-Expires=86400&X-Amz-Signature=e6037dcb6e212a3d40c5779fe5dc7df3b83590d1e8256bf25fe8c6e3c54e7b7f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
 - **Response Body**
 
@@ -648,6 +650,17 @@ id가 `{cafe-id}`인 카페의 카공 후기를 작성합니다.<br>
 </div>
 </details>
 
+<br><br>
+    
+## 🤩 Backend Member
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/PARKINHYO"><img src="https://avatars.githubusercontent.com/u/47745785?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Inhyo</b></sub></a><br/></td>
+    <td align="center"><a href="https://github.com/ayoung0073"><img src="https://avatars3.githubusercontent.com/ayoung0073?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ayoung</b></sub></a><br/></td>
+  </tr>
+</table>
+    
 <br><br>
 
 ## 📝 License
