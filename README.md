@@ -51,67 +51,107 @@
 
     ```json
     {
-        "sucess": "true",
+        "success": true,
         "data": [
             {
                 "id": "806447073",
                 "place_name": "투썸플레이스 이대역점",
                 "latitude": "37.5572360514845",
-                "longitude": "126.94569812655"
+                "longitude": "126.94569812655",
+                "phone": "02-312-8014",
+                "address_name": "서울 서대문구 대현동 40-4",
+                "road_address_name": "서울 서대문구 이화여대길 7",
+                "place_url": "http://place.map.kakao.com/806447073"
             },
             {
                 "id": "1866064248",
                 "place_name": "카페봄봄 이화여대점",
                 "latitude": "37.55722067043155",
-                "longitude": "126.94555893119713"
+                "longitude": "126.94555893119713",
+                "phone": "070-8881-1224",
+                "address_name": "서울 서대문구 대현동 40-9",
+                "road_address_name": "서울 서대문구 이화여대길 7",
+                "place_url": "http://place.map.kakao.com/1866064248"
             },
             {
                 "id": "19622085",
                 "place_name": "공차 이대점",
                 "latitude": "37.5569764014276",
-                "longitude": "126.945345206914"
+                "longitude": "126.945345206914",
+                "phone": "070-4230-7514",
+                "address_name": "서울 서대문구 대현동 40-20",
+                "road_address_name": "서울 서대문구 신촌로 173-2",
+                "place_url": "http://place.map.kakao.com/19622085"
             },
             {
                 "id": "438330961",
                 "place_name": "흑화당 이대점",
                 "latitude": "37.5571243278597",
-                "longitude": "126.945698207623"
+                "longitude": "126.945698207623",
+                "phone": "02-365-9997",
+                "address_name": "서울 서대문구 대현동 40-6",
+                "road_address_name": "서울 서대문구 이화여대길 1",
+                "place_url": "http://place.map.kakao.com/438330961"
             },
             {
                 "id": "13127567",
                 "place_name": "카페쥬디",
                 "latitude": "37.5572832629733",
-                "longitude": "126.946485798103"
+                "longitude": "126.946485798103",
+                "phone": "070-4254-3296",
+                "address_name": "서울 서대문구 대현동 45-41",
+                "road_address_name": "서울 서대문구 이화여대2길 10",
+                "place_url": "http://place.map.kakao.com/13127567"
             },
             {
                 "id": "1595131797",
                 "place_name": "커피베이 이대역점",
                 "latitude": "37.55650794784634",
-                "longitude": "126.945485885993"
+                "longitude": "126.945485885993",
+                "phone": "02-706-8029",
+                "address_name": "서울 마포구 대흥동 12-6",
+                "road_address_name": "서울 마포구 신촌로 180",
+                "place_url": "http://place.map.kakao.com/1595131797"
             },
             {
                 "id": "10368507",
                 "place_name": "라바짜 이대점",
                 "latitude": "37.5574344119916",
-                "longitude": "126.946005822281"
+                "longitude": "126.946005822281",
+                "phone": "02-312-5544",
+                "address_name": "서울 서대문구 대현동 54-24",
+                "road_address_name": "서울 서대문구 이화여대길 12",
+                "place_url": "http://place.map.kakao.com/10368507"
             },
             {
                 "id": "213867029",
                 "place_name": "다인전통찻집",
                 "latitude": "37.556443159523",
-                "longitude": "126.945667012953"
+                "longitude": "126.945667012953",
+                "phone": "",
+                "address_name": "서울 마포구 대흥동 12-1",
+                "road_address_name": "서울 마포구 신촌로 182",
+                "place_url": "http://place.map.kakao.com/213867029"
             },
             {
                 "id": "23040316",
                 "place_name": "바카라",
                 "latitude": "37.55606405286577",
-                "longitude": "126.9461324344883"
+                "longitude": "126.9461324344883",
+                "phone": "",
+                "address_name": "서울 마포구 대흥동 2-64",
+                "road_address_name": "서울 마포구 대흥로30길 6-6",
+                "place_url": "http://place.map.kakao.com/23040316"
             },
             {
                 "id": "17811924",
                 "place_name": "이지웨이 이대점",
                 "latitude": "37.5572252103555",
-                "longitude": "126.945634755837"
+                "longitude": "126.945634755837",
+                "phone": "070-7758-8288",
+                "address_name": "서울 서대문구 대현동 40-9",
+                "road_address_name": "서울 서대문구 이화여대길 7",
+                "place_url": "http://place.map.kakao.com/17811924"
             }
         ]
     }
@@ -137,14 +177,14 @@
 
     ```json
     {
-        "sucess": "true",
+        "success": true,
         "data": [
             {
                 "id": "806447073",
                 "place_name": "투썸플레이스 이대역점",
                 "latitude": "37.5572360514845",
                 "longitude": "126.94569812655",
-                "avg_star": 3.227272727272727
+                "avg_star": 3.5
             },
             {
                 "id": "1866064248",
