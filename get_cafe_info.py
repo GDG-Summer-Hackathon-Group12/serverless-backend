@@ -55,7 +55,7 @@ def lambda_handler(event, context):
 
     # 대표 리뷰 조회
     sql = '\
-            SELECT detail, count(*) \
+            SELECT detail \
             FROM review \
             WHERE `cafe_id` = %s AND detail IS NOT NULL \
             ORDER BY id DESC LIMIT 1 \
